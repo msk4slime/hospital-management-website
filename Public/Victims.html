@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion Victimes et Interventions</title>
+    <link rel="stylesheet" href="css/victime.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" 
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+</head>
+<body>
+
+<!-- Header -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="Accueil.html">HUP</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="Accueil.html">Accueil</a></li>
+                <li class="nav-item"><a class="nav-link" href="factures.html">Factures</a></li>
+                <li class="nav-item"><a class="nav-link" href="comptabilite.html">Comptabilité</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Contenu Principal -->
+<div class="container mt-5">
+    <!-- Onglets -->
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" id="new-tab" data-bs-toggle="tab" href="#new-section">Nouvelle Victime/Intervention</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="view-tab" data-bs-toggle="tab" href="#view-section">Consulter/Modifier Fiches</a>
+        </li>
+        
+    </ul>
+
+    <div class="tab-content mt-3">
+        <!-- Section Nouvelle Victime/Intervention -->
+        <div class="tab-pane fade show active" id="new-section">
+            <h3 class="text-primary mb-4">Ajouter une Victime ou une Intervention</h3>
+            <!-- Formulaire pour Nouvelle Victime -->
+            <form id="form-victime">
+                <h5 class="text-danger">Ajouter une Victime</h5>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="nom" class="form-label">Nom</label>
+                        <input type="text" class="form-control" id="nom" placeholder="Nom de la victime" required>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="age" class="form-label">Âge</label>
+                        <input type="number" class="form-control" id="age" placeholder="Âge de la victime" required>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="genre" class="form-label">Genre</label>
+                        <select class="form-control" id="genre" required>
+                            <option value="Homme">Homme</option>
+                            <option value="Femme">Femme</option>
+                            <option value="Non spécifié">Non spécifié</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-danger"><i class="bi bi-plus-circle"></i> Ajouter Victime</button>
+            </form>
+
+            <!-- Formulaire pour Nouvelle Intervention -->
+            <form id="form-intervention" class="mt-5">
+                <h5 class="text-primary">Ajouter une Intervention</h5>
+                <div class="mb-3">
+                    <label for="victime-id" class="form-label">Sélectionner une Victime</label>
+                    <select class="form-control" id="victime-id">
+                        <option value="" disabled selected>-- Sélectionnez une victime --</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="bilan-circonstanciel" class="form-label">Bilan Circonstanciel</label>
+                    <textarea class="form-control" id="bilan-circonstanciel" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary"><i class="bi bi-plus-circle"></i> Ajouter Intervention</button>
+            </form>
+        </div>
+
+        <!-- Section Consulter/Modifier Fiches -->
+        <div class="tab-pane fade" id="view-section">
+            <h3 class="text-success">Consulter/Modifier les Fiches Patients</h3>
+            <div id="archive-list" class="mt-4">
+                <!-- Les fiches patients/interventions seront affichées ici dynamiquement -->
+            </div>
+        </div>        
+    </div>
+</div>
+
+<footer class="footer-dark py-3 text-center">
+    <p class="text-muted">© EMS-RP - Tous droits réservés</p>
+</footer>
+
+<script src="js/victime.js"></script>
+<script src="js/intervention.js"></script>
+</body>
+</html>
